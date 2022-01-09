@@ -5,7 +5,7 @@ __"BrickGame 9999 in 1"__)
 Original game looked like this:
 ![img.png](essentials/readme_media/img.png)
 ***
-__To Do__:
+### To Do:
 - [x] Snake
 - [x] Arkanoid
 - [x] Space Invaders (sort of)
@@ -22,3 +22,7 @@ Some raw preview:
 ![](essentials/readme_media/invaders.gif)
 ![](essentials/readme_media/traffic_racer.gif)
 ![](essentials/readme_media/tunnel_racer.gif)
+***
+### Contacts:
+* [Telegram](https://t.me/crawlic)
+* [VK](https://vk.com/ovalmercyy)
