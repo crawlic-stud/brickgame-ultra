@@ -1,7 +1,5 @@
 import random
-
-from settings import *
-from classes.Button import Button
+from config import *
 
 
 def draw_pixel(screen, pos):

@@ -55,6 +55,7 @@ SPEED_TEXT_POS = SCREEN_CELL * 43, HEIGHT - SCREEN_CELL * 25
 SPEED_POS = SCREEN_CELL * 52, HEIGHT - SCREEN_CELL * 27
 LEVEL_TEXT_POS = SCREEN_CELL * 43, HEIGHT - SCREEN_CELL * 15
 LEVEL_POS = SCREEN_CELL * 52, HEIGHT - SCREEN_CELL * 17
+
 BUTTON_POS = SCREEN_CELL * 43, HEIGHT - SCREEN_CELL * 6
 BUTTON_SIZE = SCREEN_CELL * 13, SCREEN_CELL * 4
 
@@ -75,20 +76,9 @@ PLATFORM_DEFAULT_POS = 4
 BALL_DEFAULT_POS = [PLATFORM_DEFAULT_POS + 1, MATRIX_HEIGHT - 3]
 
 # space invaders
-BOSS = [[5, 0], [11, 0]] + [[i, 1] for i in range(3, 14)]\
-       + [[2, 2], [3, 2]] + [[i, 2] for i in range(5, 12)] + [[13, 2], [14, 2]]\
-       + [[2, 3], [3, 3]] + [[i, 3] for i in range(6, 11)] + [[13, 3], [14, 3]]\
-       + [[1, 4], [2, 4], [3, 4]] + [[i, 4] for i in range(7, 10)] + [[13, 4], [14, 4], [15, 4]]\
-       + [[i, 5] for i in range(1, 16)]\
-       + [[1, 6], [2, 6]] + [[i, 6] for i in range(3, 14, 2)] + [[14, 6], [15, 6]]\
-       + [[i, 7] for i in range(17)]\
-       + [[i, 8] for i in range(17)]\
-       + [[1, 9], [5, 9], [7, 9], [9, 9], [11, 9], [15, 9]]\
-       + [[2, 10], [4, 10], [12, 10], [14, 10]]
-
 MAX_ROW = 18
 
-# racing
+# traffic racer
 BASIC_WAVE = [i for i in range(1, 19, 3)]
 RIGHT_BORDER = [[MATRIX_WIDTH - 1, i] for i in range(MATRIX_HEIGHT - 5, MATRIX_HEIGHT)]
 LEFT_BORDER = [[0, i] for i in range(MATRIX_HEIGHT - 5, MATRIX_HEIGHT)]

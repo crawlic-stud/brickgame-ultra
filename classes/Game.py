@@ -9,3 +9,9 @@ class BaseGame:
 
     def draw(self, *args):
         pass
+
+    def pause(self):
+        self.game_over = True
+
+    def unpause(self):
+        self.game_over = False

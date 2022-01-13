@@ -1,5 +1,5 @@
 import pygame
-from settings import SCREEN, FONT, GRID_COLOR, BACKGROUND, CELL_COLOR
+from config import SCREEN, FONT, GRID_COLOR, BACKGROUND, CELL_COLOR
 
 
 class Button:
@@ -44,3 +44,5 @@ class Button:
             return
         if self.collide() and pygame.mouse.get_pressed()[0]:
             self.command()
+            pygame.time.wait(100)
+
