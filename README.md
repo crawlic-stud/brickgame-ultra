@@ -1,11 +1,11 @@
-#BrickGame Ultra XXX
+# BrickGame Ultra XXX #
 (improved interpretation of my childhood's portable console 
 __"BrickGame 9999 in 1"__)
 ***
 Original game looked like this:
 ![img.png](essentials/readme_media/img.png)
 ***
-### To Do:
+### To Do: ###
 - [x] Snake
 - [x] Arkanoid
 - [x] Space Invaders (sort of)
