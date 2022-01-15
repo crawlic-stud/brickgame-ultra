@@ -12,7 +12,7 @@ class TunnelRacer(BaseGame):
         self.first_row = (' ' * self.path_width).center(MATRIX_WIDTH, 'x')
         self.path = offset_sprite(convert([self.first_row]), offset_x=0, offset_y=MATRIX_HEIGHT-1)
         self.level = 10
-        self.speed = 10
+        self.speed = 5
         for _ in range(MATRIX_HEIGHT):
             self.create_path()
         self.slowness = 20 // self.speed
