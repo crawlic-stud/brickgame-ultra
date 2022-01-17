@@ -11,14 +11,11 @@ class TrafficRacer(BaseGame):
         self.oncoming_traffic = []
         self.line = offset_sprite(LINE, offset_x=MATRIX_WIDTH // 2 - 1, offset_y=-3)
         self.button_press = False
-        self.speed = 5
-        self.level = 8
         self.cars_slowness = SLOWNESS_LIST[self.speed]
         self.cars_speed_counter = 0
         self.spawn_timer = 0
         self.spawn_time = 60 * self.cars_slowness // self.level
         self.spawn_cars()
-        play_music(SECOND_THEME)
 
     def control(self):
         keys = pygame.key.get_pressed()

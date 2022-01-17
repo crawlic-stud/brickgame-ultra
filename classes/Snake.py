@@ -6,13 +6,14 @@ class Snake(BaseGame):
         super().__init__('SNAKE')
         self.x, self.y = SNAKE_DEFAULT_POS
         self.vel = [1, 0]
+
         self.apple_pos = [random.randrange(MATRIX_WIDTH), random.randrange(MATRIX_HEIGHT)]
+
         self.slowness = 10
         self.speed_counter = 0
+
         self.snake = [[self.x, self.y]]
         self.length = 2
-        self.level = 5
-        play_music(MAIN_THEME)
 
     def control(self):
         keys = pygame.key.get_pressed()

@@ -105,7 +105,7 @@ def offset_sprite(sprite, offset_x, offset_y):
 
 
 def shuffle_poses(length=6):
-    holes = random.randint(2, length-2)
+    holes = random.randint(3, length-2)
     array = [0 for _ in range(holes)] + [1 for _ in range(length - holes)]
     random.shuffle(array)
     return array

@@ -1,17 +1,23 @@
+import pygame
+
+from classes.Settings import CONFIG
+from config import MAIN_THEME
+from functions import play_music
+
+
 class BaseGame:
     def __init__(self, name):
         self.score = 0
         self.bonus_points = 1000
         self.game_over = False
         self.name = name
-        self.speed = 1
-        self.level = 1
+        self.speed = CONFIG['games'][name]['speed']
+        self.level = CONFIG['games'][name]['level']
+
+        play_music(MAIN_THEME)
+        if not CONFIG['overall']['music']:
+            pygame.mixer.music.pause()
 
     def draw(self, *args):
         pass
 
-    def pause(self):
-        self.game_over = True
-
-    def unpause(self):
-        self.game_over = False

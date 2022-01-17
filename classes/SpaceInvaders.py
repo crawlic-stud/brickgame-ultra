@@ -10,14 +10,16 @@ class SpaceInvaders(BaseGame):
         self.ship = sprite_to_bottom(SHIP_2)
         self.ship_slowness = 2
         self.ship_speed_counter = 0
+        self.shoot_delay = 0
+
         self.enemy_slowness = 30
         self.enemy_speed_counter = 0
-        self.shoot_delay = 0
         self.enemies = []
+
         self.spawn_enemy(random.choice(ENEMIES_SMALL), offset_y=0, offset_x=MATRIX_WIDTH//3)
+
         self.projectiles = []
         self.enemy_projectiles = []
-        play_music(SECOND_THEME)
 
     def control(self):
         keys = pygame.key.get_pressed()

@@ -1,0 +1,29 @@
+{
+    "overall": {
+        "music": 0,
+        "fps": 0,
+        "cell": 24
+    },
+    "games": {
+        "SNAKE": {
+            "level": 10,
+            "speed": 4
+        },
+        "ARKANOID": {
+            "level": 10,
+            "speed": 8
+        },
+        "SPACE INVADERS": {
+            "level": 6,
+            "speed": 3
+        },
+        "TRAFFIC RACER": {
+            "level": 5,
+            "speed": 6
+        },
+        "TUNNEL RACER": {
+            "level": 10,
+            "speed": 5
+        }
+    }
+}

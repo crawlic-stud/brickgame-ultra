@@ -29,8 +29,10 @@ MOVEMENT_SOUND = pygame.mixer.Sound('essentials/sounds/movement.wav')
 PEW_SOUND_1 = pygame.mixer.Sound('essentials/sounds/shoot1.wav')
 PEW_SOUND_2 = pygame.mixer.Sound('essentials/sounds/shoot2.wav')
 ENEMY_DEATH_SOUND = pygame.mixer.Sound('essentials/sounds/enemy_explosion.wav')
+
 ENEMY_DEATH_SOUND.set_volume(0.1)
 GAME_OVER_SOUND.set_volume(0.1)
+BOUNCE_SOUND.set_volume(0.1)
 
 # music
 SECOND_THEME = 'essentials/music/second_theme.wav'

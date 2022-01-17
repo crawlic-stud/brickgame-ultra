@@ -4,17 +4,19 @@ from classes.__init__ import *
 class Arkanoid(BaseGame):
     def __init__(self):
         super().__init__('ARKANOID')
+
         self.platform_length = 5
         self.platform = [[PLATFORM_DEFAULT_POS + i, MATRIX_HEIGHT - 1] for i in range(self.platform_length)]
+
+        self.slowness = 5
         self.ball_pos = BALL_DEFAULT_POS
         self.ball_vel = [-1, -1]
-        self.level = 2
+        self.ball_speed = 0
+
         self.bonus_points = 100
+
         self.bricks = [[random.randint(0, self.level) for _ in range(BRICK_ROWS)] for _ in range(MATRIX_WIDTH)]
         self.button_press = 0
-        self.ball_speed = 0
-        self.slowness = 5
-        play_music(MAIN_THEME)
 
     def control(self):
         keys = pygame.key.get_pressed()
@@ -45,6 +47,7 @@ class Arkanoid(BaseGame):
             for y, brick in enumerate(bricks):
                 if not brick:
                     continue
+
                 x_border = [ball_x - 1, ball_x + 1]
                 y_border = [ball_y - 1, ball_y + 1]
 
@@ -55,10 +58,13 @@ class Arkanoid(BaseGame):
                 elif not (x in x_border and y in y_border):
                     continue
 
-                BOUNCE_SOUND.play(fade_ms=100)
-                self.bricks[x][y] = 0
-                self.score += self.bonus_points
-                self.bonus_points += 100
+                self.hit(x, y)
+
+    def hit(self, x, y):
+        BOUNCE_SOUND.play(fade_ms=100)
+        self.bricks[x][y] = 0
+        self.score += self.bonus_points
+        self.bonus_points += 100
 
     def ball_collision(self):
         if self.ball_pos[0] == 0 or self.ball_pos[0] == MATRIX_WIDTH - 1:

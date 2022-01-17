@@ -46,3 +46,7 @@ class Button:
             self.command()
             pygame.time.wait(100)
 
+
+class Switch(Button):
+    def __init__(self, rect, text, text_size, state1=None, state2=None):
+        super().__init__(rect, text, text_size)
