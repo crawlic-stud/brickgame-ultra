@@ -1,5 +1,6 @@
 import pygame
 
+from classes.Animations import Animations
 from classes.Settings import CONFIG
 from config import MAIN_THEME
 from functions import play_music
@@ -18,6 +19,12 @@ class BaseGame:
         if not CONFIG['overall']['music']:
             pygame.mixer.music.pause()
 
-    def draw(self, *args):
-        pass
+        self.animation = Animations()
 
+    def draw_game(self, screen):
+        """Method that should be in every game in order to draw all events on screen"""
+        pass
+    
+    def draw(self, screen):
+        self.animation.draw(screen)
+        self.draw_game(screen)

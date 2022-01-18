@@ -7,7 +7,7 @@ from sprites import ENEMIES_SMALL, ENEMIES_BIG, \
 class SpaceInvaders(BaseGame):
     def __init__(self):
         super().__init__('SPACE INVADERS')
-        self.ship = sprite_to_bottom(SHIP_2)
+        self.ship = sprite_to_bottom(SHIP_3)
         self.ship_slowness = 2
         self.ship_speed_counter = 0
         self.shoot_delay = 0
@@ -168,6 +168,7 @@ class SpaceInvaders(BaseGame):
         for enemy in self.enemies:
             if len(enemy) < 4:
                 ENEMY_DEATH_SOUND.play()
+                self.animation.explosion(*enemy[0])
                 self.enemies.remove(enemy)
 
         self.control()
@@ -175,7 +176,7 @@ class SpaceInvaders(BaseGame):
         self.move_projectiles()
         self.collision()
 
-    def draw(self, screen):
+    def draw_game(self, screen):
         self.main()
 
         for pixel in self.ship:

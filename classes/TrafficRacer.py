@@ -87,6 +87,8 @@ class TrafficRacer(BaseGame):
     def collision(self):
         for car in (self.traffic + self.oncoming_traffic):
             if intersects(car, self.car):
+                self.animation.explosion(*self.car[0])
+                self.car = []
                 self.game_over = True
 
     def add_points(self):
@@ -115,7 +117,7 @@ class TrafficRacer(BaseGame):
         self.move_cars()
         self.remove_cars()
 
-    def draw(self, screen):
+    def draw_game(self, screen):
         self.main()
         for pixel in self.car:
             draw_pixel_matrix(screen, pixel)

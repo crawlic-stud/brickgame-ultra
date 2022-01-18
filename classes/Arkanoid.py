@@ -72,6 +72,7 @@ class Arkanoid(BaseGame):
         if self.ball_pos[1] == 0:
             self.ball_vel[1] *= -1
         elif self.ball_pos[1] >= MATRIX_HEIGHT - 1:
+            self.animation.explosion(*self.ball_pos)
             self.game_over = True
 
         platform_level = MATRIX_HEIGHT - 2
@@ -129,7 +130,7 @@ class Arkanoid(BaseGame):
         self.ball_in_border()
         self.control()
 
-    def draw(self, screen):
+    def draw_game(self, screen):
         self.main()
         for pixel in self.platform:
             draw_pixel_matrix(screen, pixel)

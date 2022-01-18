@@ -30,6 +30,7 @@ class Snake(BaseGame):
         for segment in self.snake[-self.length:-1]:
             if [self.x, self.y] == segment:
                 HIT_SOUND.play()
+                self.animation.explosion(self.x, self.y)
                 self.game_over = True
 
     def collide_apple(self):
@@ -89,7 +90,7 @@ class Snake(BaseGame):
         self.collide_apple()
         self.move()
 
-    def draw(self, screen):
+    def draw_game(self, screen):
         self.main()
 
         draw_pixel_matrix(screen, self.apple_pos)

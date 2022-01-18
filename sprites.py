@@ -10,6 +10,45 @@ def convert_all(_list):
     return list(map(convert, _list))
 
 
+# -------------------- GENERAL ---------------------
+EXPLOSION = convert_all([
+ ['     ',
+  '     ',
+  '  x  ',
+  '     ',
+  '     '],
+
+ ['     ',
+  ' x x ',
+  '  x  ',
+  ' x x ',
+  '     '],
+
+ ['     ',
+  ' x x ',
+  'x x x',
+  ' x x ',
+  '     '],
+
+ ['x   x',
+  ' x x ',
+  '  x  ',
+  ' x x ',
+  'x   x'],
+
+ ['x   x',
+  '  x  ',
+  '     ',
+  '  x  ',
+  'x   x'],
+
+ ['x   x',
+  '     ',
+  '     ',
+  '     ',
+  'x   x'],
+])
+
 # ------------------- ARKANOID ---------------------
 ENEMIES_SMALL = convert_all([
     [' xxx ',

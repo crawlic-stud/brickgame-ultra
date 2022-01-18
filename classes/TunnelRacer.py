@@ -43,6 +43,8 @@ class TunnelRacer(BaseGame):
 
     def collision(self):
         if intersects(self.car, self.path):
+            self.animation.explosion(*self.car[0])
+            self.car = []
             self.game_over = True
 
     def create_path(self):
@@ -88,7 +90,7 @@ class TunnelRacer(BaseGame):
         self.move_path()
         self.remove_path()
 
-    def draw(self, screen):
+    def draw_game(self, screen):
         self.main()
         for pixel in self.car:
             draw_pixel_matrix(screen, pixel)
