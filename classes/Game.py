@@ -20,6 +20,7 @@ class BaseGame:
             pygame.mixer.music.pause()
 
         self.animation = Animations()
+        self.animation.loading()
 
     def draw_game(self, screen):
         """Method that should be in every game in order to draw all events on screen"""

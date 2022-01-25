@@ -1,7 +1,7 @@
 {
     "overall": {
         "music": 0,
-        "fps": 0,
+        "fps": 1,
         "cell": 24
     },
     "games": {
@@ -10,19 +10,23 @@
             "speed": 4
         },
         "ARKANOID": {
-            "level": 10,
-            "speed": 8
+            "level": 7,
+            "speed": 9
         },
         "SPACE INVADERS": {
             "level": 6,
             "speed": 3
         },
         "TRAFFIC RACER": {
-            "level": 5,
+            "level": 10,
             "speed": 6
         },
         "TUNNEL RACER": {
             "level": 10,
+            "speed": 5
+        },
+        "TANKS BATTLE": {
+            "level": 5,
             "speed": 5
         }
     }

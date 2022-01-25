@@ -1,4 +1,5 @@
 """File for containing all games sprites"""
+from config import MATRIX_WIDTH, MATRIX_HEIGHT
 
 
 def convert(sprite):
@@ -8,6 +9,25 @@ def convert(sprite):
 
 def convert_all(_list):
     return list(map(convert, _list))
+
+
+def convert_with_empty(sprite):
+    """Returns list of 3 coordinates, where the third is representing if pixel is filled or not"""
+    pos_list = []
+    for i, x in enumerate(sprite):
+        for j, item in enumerate(x):
+            if item == 'x':
+                pos_list.append([j, i, True])
+            else:
+                pos_list.append([j, i, False])
+    return pos_list
+
+
+def rotate_sprite(sprite, times):
+    """Rotates sprites clockwise 90 degrees each time, 1 == 90 degrees, 2 == 180 degrees, 3 == 270 degrees"""
+    for _ in range(times):
+        sprite = list(zip(*sprite[::-1]))
+    return sprite
 
 
 # -------------------- GENERAL ---------------------
@@ -48,6 +68,10 @@ EXPLOSION = convert_all([
   '     ',
   'x   x'],
 ])
+
+CURTAIN = convert_all([
+ ['x' * MATRIX_WIDTH] * x for x in range(MATRIX_HEIGHT)
+][::-1])
 
 # ------------------- ARKANOID ---------------------
 ENEMIES_SMALL = convert_all([
@@ -256,3 +280,23 @@ LINE = convert([
  ' ',
  ' '
 ] * 8)
+
+# ----------------------------- TANKS BATTLE -----------------------
+TANK = [
+ ' x ',
+ 'xxx',
+ 'x x'
+]
+
+BORDER = convert([
+ 'x' * MATRIX_WIDTH,
+ *(['x' + ' ' * (MATRIX_WIDTH - 2) + 'x'] * (MATRIX_HEIGHT - 2)),
+ 'x' * MATRIX_WIDTH
+])
+
+ROCK = convert([
+ 'xxxx',
+ 'xxxx',
+ 'xxxx',
+ 'xxxx'
+])

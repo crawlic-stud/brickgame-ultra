@@ -1,17 +1,18 @@
 import sys
+
 from config import *
 from functions import draw_text, draw_base_layout, draw_alpha_rect
 from classes.Button import Button
 from classes.Settings import Settings, CONFIG
-import pygame
 
 from classes.Snake import Snake
 from classes.Arkanoid import Arkanoid
 from classes.SpaceInvaders import SpaceInvaders
 from classes.TrafficRacer import TrafficRacer
 from classes.TunnelRacer import TunnelRacer
+from classes.TanksBattle import TanksBattle
 
-GAMES_LIST = [Snake, Arkanoid, SpaceInvaders, TrafficRacer, TunnelRacer]
+GAMES_LIST = [Snake, Arkanoid, SpaceInvaders, TrafficRacer, TunnelRacer, TanksBattle]
 
 
 class Console:

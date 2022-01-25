@@ -7,6 +7,7 @@ from sprites import ENEMIES_SMALL, ENEMIES_BIG, \
 class SpaceInvaders(BaseGame):
     def __init__(self):
         super().__init__('SPACE INVADERS')
+
         self.ship = sprite_to_bottom(SHIP_3)
         self.ship_slowness = 2
         self.ship_speed_counter = 0

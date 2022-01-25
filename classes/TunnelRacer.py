@@ -9,7 +9,7 @@ class TunnelRacer(BaseGame):
         super().__init__('TUNNEL RACER')
         self.car = offset_sprite(CAR, offset_x=MATRIX_WIDTH//2 - 1, offset_y=MATRIX_HEIGHT - 6)
 
-        self.path_width = 7
+        self.path_width = 8
         self.first_row = (' ' * self.path_width).center(MATRIX_WIDTH, 'x')
         self.path = offset_sprite(convert([self.first_row]), offset_x=0, offset_y=MATRIX_HEIGHT-1)
 

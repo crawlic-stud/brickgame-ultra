@@ -8,6 +8,7 @@ class Snake(BaseGame):
         self.vel = [1, 0]
 
         self.apple_pos = [random.randrange(MATRIX_WIDTH), random.randrange(MATRIX_HEIGHT)]
+        self.apple_show = 0
 
         self.slowness = 10
         self.speed_counter = 0
@@ -30,10 +31,15 @@ class Snake(BaseGame):
         for segment in self.snake[-self.length:-1]:
             if [self.x, self.y] == segment:
                 HIT_SOUND.play()
+                self.snake = []
                 self.animation.explosion(self.x, self.y)
                 self.game_over = True
 
     def collide_apple(self):
+        self.apple_show += 1
+        if self.apple_show > 7:
+            self.apple_show = 0
+
         if [self.x, self.y] == self.apple_pos:
             PICK_UP_SOUND.play(fade_ms=100)
             while self.apple_pos in self.snake[-self.length:]:
@@ -82,7 +88,6 @@ class Snake(BaseGame):
         self.apple_pos = [random.randrange(MATRIX_WIDTH), random.randrange(MATRIX_HEIGHT)]
 
     def main(self):
-        # if game over - don't move
         if self.game_over:
             return
 
@@ -93,6 +98,8 @@ class Snake(BaseGame):
     def draw_game(self, screen):
         self.main()
 
-        draw_pixel_matrix(screen, self.apple_pos)
+        if self.apple_show:
+            draw_pixel_matrix(screen, self.apple_pos)
+
         for segment in self.snake:
             draw_pixel_matrix(screen, segment)
