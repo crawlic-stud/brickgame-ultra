@@ -11,8 +11,9 @@ from classes.SpaceInvaders import SpaceInvaders
 from classes.TrafficRacer import TrafficRacer
 from classes.TunnelRacer import TunnelRacer
 from classes.TanksBattle import TanksBattle
+from classes.Tetris import Tetris
 
-GAMES_LIST = [Snake, Arkanoid, SpaceInvaders, TrafficRacer, TunnelRacer, TanksBattle]
+GAMES_LIST = [Snake, Arkanoid, SpaceInvaders, TrafficRacer, TunnelRacer, TanksBattle, Tetris]
 
 
 class Console:

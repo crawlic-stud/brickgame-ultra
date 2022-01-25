@@ -13,22 +13,22 @@ Some raw preview
 ![](essentials/readme_media/traffic_racer.gif)
 ![](essentials/readme_media/tunnel_racer.gif)
 ![](essentials/readme_media/tanks_battle.gif)
+![](essentials/readme_media/tetris.gif)
 ***
 ### To Do: ###
 Games:
-- [x] Snake
-- [x] Arkanoid
+- [x] Snake 
+- [x] Arkanoid 
 - [x] Space Invaders (sort of)
 - [x] Racer games
 - [x] Tanks battle
-- [ ] Tetris
+- [x] Tetris
 - [ ] Pong
 
 Improvement:
 - [x] Add animations and more enjoyable look
 - [ ] Add enjoyable sounds and music
 - [ ] Get sound and music settings work
-- [ ] Add interesting variations to all games
 - [ ] Make each game more interesting and entertaining
 - [ ] Add more variations to all games
 - [ ] Implement level and speed systems in all games

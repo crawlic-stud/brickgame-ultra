@@ -28,6 +28,10 @@
         "TANKS BATTLE": {
             "level": 5,
             "speed": 5
+        },
+        "TETRIS": {
+            "level": 5,
+            "speed": 5
         }
     }
 }
