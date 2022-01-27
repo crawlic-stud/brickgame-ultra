@@ -14,10 +14,11 @@ class BaseGame:
         self.name = name
         self.speed = CONFIG['games'][name]['speed']
         self.level = CONFIG['games'][name]['level']
+        self.lives = 3
 
         play_music(MAIN_THEME)
         if not CONFIG['overall']['music']:
-            pygame.mixer.music.pause()
+            pygame.mixer.music.set_volume(0)
 
         self.animation = Animations()
         self.animation.loading()
@@ -25,7 +26,7 @@ class BaseGame:
     def draw_game(self, screen):
         """Method that should be in every game in order to draw all events on screen"""
         pass
-    
+
     def draw(self, screen):
         self.animation.draw(screen)
         self.draw_game(screen)

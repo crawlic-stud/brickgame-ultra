@@ -15,19 +15,18 @@ class Settings:
         self.music = CONFIG['overall']['music']
         self.show_fps = CONFIG['overall']['fps']
 
-        # TODO: create all buttons and configure them
         self.settings_buttons = (
-            Button([*MATRIX_FRAME[-7][2], 48, 48], '+', 48, self.level_up),
-            Button([*MATRIX_FRAME[-7][4], 48, 48], '-', 48, self.level_down),
-            Button([*MATRIX_FRAME[-7][6], 48, 48], '+', 48, self.speed_up),
-            Button([*MATRIX_FRAME[-7][8], 48, 48], '-', 48, self.speed_down),
-            Button([*MATRIX_FRAME[-7][12], 48, 48], 'OFF', 32, self.switch_fps),
-            Button([*MATRIX_FRAME[-7][15], 48, 48], 'OFF', 32, self.switch_music),
-            Button([*MATRIX_FRAME[-13][20], 144, 48], 'ACCEPT', 48, self.close),
+            Button([*S_L_UP, 48, 48], '+', 48, self.level_up),
+            Button([*S_L_DOWN, 48, 48], '-', 48, self.level_down),
+            Button([*S_S_UP, 48, 48], '+', 48, self.speed_up),
+            Button([*S_S_DOWN, 48, 48], '-', 48, self.speed_down),
+            Button([*S_SW_FPS, 48, 48], 'OFF', 32, self.switch_fps),
+            Button([*S_SW_MUSIC, 48, 48], 'OFF', 32, self.switch_music),
+            Button([*S_CLOSE, 144, 48], 'ACCEPT', 48, self.close),
         )
 
-        self.settings_buttons[4].text = 'OFF' if CONFIG['overall']['fps'] else 'ON'
-        self.settings_buttons[5].text = 'OFF' if CONFIG['overall']['music'] else 'ON'
+        self.settings_buttons[4].text = 'ON' if CONFIG['overall']['fps'] else 'OFF'
+        self.settings_buttons[5].text = 'ON' if CONFIG['overall']['music'] else 'OFF'
 
     def draw(self):
         draw_alpha_rect(SCREEN, BACKLIGHT_COLOR, (FRAME[2], FRAME[3]), (FRAME[0], FRAME[1]))
@@ -35,10 +34,10 @@ class Settings:
         frame = [SCREEN_CELL * 3, SCREEN_CELL * 7, WIDTH - 24 * SCREEN_CELL, HEIGHT - 12 * SCREEN_CELL]
         pygame.draw.rect(SCREEN, BACKGROUND, frame)
 
-        draw_text(SCREEN, 'LEVEL', MATRIX_FRAME[5][3], 72)
-        draw_text(SCREEN, 'SPEED', MATRIX_FRAME[5][7], 72)
-        draw_text(SCREEN, 'FPS', MATRIX_FRAME[5][12], 60)
-        draw_text(SCREEN, 'MUSIC', MATRIX_FRAME[5][15], 60)
+        draw_text(SCREEN, 'LEVEL', S_LEVEL, 72)
+        draw_text(SCREEN, 'SPEED', S_SPEED, 72)
+        draw_text(SCREEN, 'FPS', S_FPS, 60)
+        draw_text(SCREEN, 'MUSIC', S_MUSIC, 60)
 
         for button in self.settings_buttons:
             button.draw()
@@ -54,24 +53,23 @@ class Settings:
         self.showing = False
         self.save()
 
-    # TODO: implement all switch functions
     def switch_music(self):
         self.music = 0 if self.music else 1
         if self.music:
-            pygame.mixer.music.unpause()
+            pygame.mixer.music.set_volume(1)
         else:
-            pygame.mixer.music.pause()
+            pygame.mixer.music.set_volume(0)
 
-        if self.settings_buttons[5].text == 'OFF':
-            self.settings_buttons[5].text = 'ON'
-        else:
+        if self.settings_buttons[5].text == 'ON':
             self.settings_buttons[5].text = 'OFF'
+        else:
+            self.settings_buttons[5].text = 'ON'
 
     def switch_fps(self):
-        if self.settings_buttons[4].text == 'OFF':
-            self.settings_buttons[4].text = 'ON'
-        else:
+        if self.settings_buttons[4].text == 'ON':
             self.settings_buttons[4].text = 'OFF'
+        else:
+            self.settings_buttons[4].text = 'ON'
 
         self.show_fps = 0 if self.show_fps else 1
 

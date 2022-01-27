@@ -1,7 +1,9 @@
 import sys
 
 from config import *
-from functions import draw_text, draw_base_layout, draw_alpha_rect
+from functions import draw_text, draw_base_layout, draw_alpha_rect, draw_next_brick
+from sprites import BORDER_SMALL
+
 from classes.Button import Button
 from classes.Settings import Settings, CONFIG
 
@@ -34,6 +36,8 @@ class Console:
             draw_base_layout(SCREEN, self.game)
             self.settings_button.draw()
             self.game.draw(SCREEN)
+            if self.current_index != 6:
+                draw_next_brick(SCREEN, BORDER_SMALL)
 
             if self.settings.show_fps:
                 draw_text(SCREEN, f'{round(CLOCK.get_fps(), 1)} FPS', (0, 0), 20)

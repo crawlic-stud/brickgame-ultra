@@ -1,5 +1,5 @@
 from classes.__init__ import *
-from sprites import TANK, rotate_sprite, convert_with_empty, BORDER, ROCK
+from sprites import TANK, rotate_sprite, convert_with_empty, BORDER, BIG_ROCK, ROCK
 
 
 class TanksBattle(BaseGame):
@@ -11,8 +11,8 @@ class TanksBattle(BaseGame):
         self.enemies = []
         [self.spawn_enemy(*pos) for pos in SPAWN_POINTS]
 
-        other_obstacles = offset_sprite(ROCK, 10, 10), offset_sprite(ROCK, 12, 5), offset_sprite(ROCK, 15, 15)
-        self.obstacles = [BORDER]
+        other_obstacles = offset_sprite(BIG_ROCK, 10, 10), offset_sprite(ROCK, 12, 5), offset_sprite(ROCK, 10, 15)
+        self.obstacles = [BORDER, *other_obstacles]
 
         self.shoot_pressed = 0
 

@@ -1,5 +1,5 @@
 """File for containing all games sprites"""
-from config import MATRIX_WIDTH, MATRIX_HEIGHT
+from config import MATRIX_WIDTH, MATRIX_HEIGHT, BRICK_MATRIX_WIDTH
 
 
 def convert(sprite):
@@ -31,6 +31,19 @@ def rotate_sprite(sprite, times):
 
 
 # -------------------- GENERAL ---------------------
+BORDER = convert([
+ 'x' * MATRIX_WIDTH,
+ *(['x' + ' ' * (MATRIX_WIDTH - 2) + 'x'] * (MATRIX_HEIGHT - 2)),
+ 'x' * MATRIX_WIDTH
+])
+
+BORDER_SMALL = convert([
+ 'x' * BRICK_MATRIX_WIDTH,
+ *(['x' + ' ' * (BRICK_MATRIX_WIDTH - 2) + 'x'] * (BRICK_MATRIX_WIDTH - 2)),
+ 'x' * BRICK_MATRIX_WIDTH
+])
+
+# ---------------------- ANIMATIONS ---------------------
 EXPLOSION = convert_all([
  ['     ',
   '     ',
@@ -72,6 +85,19 @@ EXPLOSION = convert_all([
 CURTAIN = convert_all([
  ['x' * MATRIX_WIDTH] * x for x in range(MATRIX_HEIGHT)
 ][::-1])
+
+BLINKING = convert_all([
+ ['x'],
+ [' '],
+ [' '],
+ ['x'],
+ [' '],
+ ['x'],
+ [' '],
+ [' '],
+ ['x'],
+ [' '],
+])
 
 # ------------------- ARKANOID ---------------------
 ENEMIES_SMALL = convert_all([
@@ -288,13 +314,12 @@ TANK = [
  'x x'
 ]
 
-BORDER = convert([
- 'x' * MATRIX_WIDTH,
- *(['x' + ' ' * (MATRIX_WIDTH - 2) + 'x'] * (MATRIX_HEIGHT - 2)),
- 'x' * MATRIX_WIDTH
+ROCK = convert([
+ 'xx',
+ 'xx'
 ])
 
-ROCK = convert([
+BIG_ROCK = convert([
  'xxxx',
  'xxxx',
  'xxxx',

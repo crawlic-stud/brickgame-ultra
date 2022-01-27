@@ -35,9 +35,9 @@ def draw_base_layout(screen, game):
     draw_text(screen, 'SCORE', SCORE_TEXT_POS, 35)
     draw_text(screen, str(game.score).rjust(6, '0'), SCORE_POS, 70, font=SCORE_FONT)
     draw_text(screen, 'SPEED', SPEED_TEXT_POS, 35)
-    draw_text(screen, str(game.speed).rjust(2, '0'), SPEED_POS, 70)
+    draw_text(screen, str(game.speed).rjust(2, '0'), SPEED_POS, 70, font=SCORE_FONT)
     draw_text(screen, 'LEVEL', LEVEL_TEXT_POS, 35)
-    draw_text(screen, str(game.level).rjust(2, '0'), LEVEL_POS, 70)
+    draw_text(screen, str(game.level).rjust(2, '0'), LEVEL_POS, 70, font=SCORE_FONT)
     for rows in MATRIX_FRAME:
         for pos in rows:
             pygame.draw.rect(screen, GRID_COLOR, (pos[0], pos[1], MATRIX_CELL, MATRIX_CELL), 5)
@@ -48,6 +48,23 @@ def draw_alpha_rect(screen, color, size, pos):
     rectangle = pygame.Surface(size, pygame.SRCALPHA)
     rectangle.fill(color)
     screen.blit(rectangle, pos)
+
+
+def next_brick_layout(screen):
+    draw_text(screen, 'NEXT', NEXT_BRICK_TEXT, 35)
+
+    for rows in NEXT_BRICK_MATRIX:
+        for row in rows:
+            pygame.draw.rect(screen, GRID_COLOR, [row[0], row[1], MATRIX_CELL, MATRIX_CELL], 5)
+
+    pygame.draw.rect(screen, CELL_COLOR,
+                     [*NEXT_BRICK_POS, BRICK_MATRIX_WIDTH * MATRIX_CELL, BRICK_MATRIX_WIDTH * MATRIX_CELL], 2)
+
+
+def draw_next_brick(screen, brick):
+    next_brick_layout(screen)
+    for pixel in brick:
+        draw_pixel(screen, NEXT_BRICK_MATRIX[pixel[0]][pixel[1]])
 
 
 def text_size(text, size, font=FONT):
