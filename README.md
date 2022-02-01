@@ -3,17 +3,17 @@
 __"BrickGame 9999 in 1"__)
 ***
 Original game looked like this:
-![img.png](src/essentials/readme_media/img.png)
+![img.png](readme_media/img.png)
 ***
 Some raw preview
 (might be outdated):
-![](src/essentials/readme_media/snake.gif)
-![](src/essentials/readme_media/arkanoid.gif)
-![](src/essentials/readme_media/invaders.gif)
-![](src/essentials/readme_media/traffic_racer.gif)
-![](src/essentials/readme_media/tunnel_racer.gif)
-![](src/essentials/readme_media/tanks_battle.gif)
-![](src/essentials/readme_media/tetris.gif)
+![](readme_media/snake.gif)
+![](readme_media/arkanoid.gif)
+![](readme_media/invaders.gif)
+![](readme_media/traffic_racer.gif)
+![](readme_media/tunnel_racer.gif)
+![](readme_media/tanks_battle.gif)
+![](readme_media/tetris.gif)
 ***
 ### To Do: ###
 Games:
