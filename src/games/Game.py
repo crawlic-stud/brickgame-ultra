@@ -1,9 +1,9 @@
 import pygame
 
-from classes.Animations import Animations
-from classes.Settings import CONFIG
-from config import MAIN_THEME
-from functions import play_music
+from src.classes.Animations import Animations
+from src.classes.Settings import CONFIG
+from src.config import MAIN_THEME
+from src.functions import play_music
 
 
 class BaseGame:

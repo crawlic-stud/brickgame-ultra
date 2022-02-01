@@ -1,6 +1,6 @@
-from classes.Button import Button
-from config import *
-from functions import draw_text, draw_alpha_rect
+from src.classes.Button import Button
+from src.config import *
+from src.functions import draw_text, draw_alpha_rect
 import json
 
 

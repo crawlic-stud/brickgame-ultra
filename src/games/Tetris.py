@@ -1,7 +1,7 @@
-import pygame.key
+from src.games.__init__ import *
 
-from classes.__init__ import *
-from sprites import PIECES, rotate_sprite, convert_with_empty
+from src.sprites import PIECES, rotate_sprite, convert_with_empty
+
 
 
 class Tetris(BaseGame):

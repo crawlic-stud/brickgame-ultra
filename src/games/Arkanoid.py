@@ -1,4 +1,5 @@
-from classes.__init__ import *
+from src.games.__init__ import *
+import random
 
 
 class Arkanoid(BaseGame):

@@ -1,5 +1,5 @@
 import pygame
-from config import SCREEN, FONT, GRID_COLOR, BACKGROUND, CELL_COLOR
+from src.config import SCREEN, FONT, GRID_COLOR, BACKGROUND, CELL_COLOR
 
 
 class Button:

@@ -1,7 +1,6 @@
-import random
+from src.games.__init__ import *
 
-from classes.__init__ import *
-from sprites import CAR, convert
+from src.sprites import CAR, convert
 
 
 class TunnelRacer(BaseGame):

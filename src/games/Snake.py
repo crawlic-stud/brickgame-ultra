@@ -1,4 +1,4 @@
-from classes.__init__ import *
+from src.games.__init__ import *
 
 
 class Snake(BaseGame):

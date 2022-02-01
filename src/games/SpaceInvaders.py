@@ -1,6 +1,7 @@
-from classes.__init__ import *
-from sprites import ENEMIES_SMALL, ENEMIES_BIG, \
-    SHIP_1, SHIP_2, SHIP_3, \
+from src.games.__init__ import *
+
+from src.sprites import ENEMIES_SMALL, ENEMIES_BIG, \
+    SHIP_3, \
     PROJECTILE_1, PROJECTILE_2, PROJECTILE_3
 
 

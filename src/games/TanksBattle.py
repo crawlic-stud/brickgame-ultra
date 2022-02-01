@@ -1,5 +1,6 @@
-from classes.__init__ import *
-from sprites import TANK, rotate_sprite, convert_with_empty, BORDER, BIG_ROCK, ROCK
+from src.games.__init__ import *
+
+from src.sprites import TANK, rotate_sprite, convert_with_empty, BORDER, BIG_ROCK, ROCK
 
 
 class TanksBattle(BaseGame):

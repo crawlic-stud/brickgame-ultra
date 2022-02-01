@@ -1,7 +1,7 @@
 import random
 from math import sqrt
 
-from config import *
+from src.config import *
 
 
 def draw_pixel(screen, pos):

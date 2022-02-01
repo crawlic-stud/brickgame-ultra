@@ -1,4 +1,4 @@
-from classes.__init__ import *
+from src.__init__ import *
 
 
 class Entity:

@@ -1,7 +1,7 @@
 {
     "overall": {
-        "music": 1,
-        "fps": 1,
+        "music": 0,
+        "fps": 0,
         "cell": 24
     },
     "games": {
@@ -10,7 +10,7 @@
             "speed": 4
         },
         "ARKANOID": {
-            "level": 7,
+            "level": 1,
             "speed": 9
         },
         "SPACE INVADERS": {

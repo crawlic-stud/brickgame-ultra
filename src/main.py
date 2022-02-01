@@ -1,19 +1,19 @@
 import sys
 
-from config import *
-from functions import draw_text, draw_base_layout, draw_alpha_rect, draw_next_brick
-from sprites import BORDER_SMALL
+from src.config import *
+from src.functions import draw_text, draw_base_layout, draw_alpha_rect, draw_next_brick
+from src.sprites import BORDER_SMALL
 
-from classes.Button import Button
-from classes.Settings import Settings, CONFIG
+from src.classes.Button import Button
+from src.classes.Settings import Settings
 
-from classes.Snake import Snake
-from classes.Arkanoid import Arkanoid
-from classes.SpaceInvaders import SpaceInvaders
-from classes.TrafficRacer import TrafficRacer
-from classes.TunnelRacer import TunnelRacer
-from classes.TanksBattle import TanksBattle
-from classes.Tetris import Tetris
+from src.games.Snake import Snake
+from src.games.Arkanoid import Arkanoid
+from src.games.SpaceInvaders import SpaceInvaders
+from src.games.TrafficRacer import TrafficRacer
+from src.games.TunnelRacer import TunnelRacer
+from src.games.TanksBattle import TanksBattle
+from src.games.Tetris import Tetris
 
 GAMES_LIST = [Snake, Arkanoid, SpaceInvaders, TrafficRacer, TunnelRacer, TanksBattle, Tetris]
 

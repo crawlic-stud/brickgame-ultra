@@ -1,5 +1,6 @@
-from classes.__init__ import *
-from sprites import CAR, BIG_CAR, CAR_REVERT, LINE
+from src.games.__init__ import *
+
+from src.sprites import CAR, CAR_REVERT, LINE
 
 
 class TrafficRacer(BaseGame):

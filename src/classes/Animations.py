@@ -1,5 +1,5 @@
-from functions import offset_sprite, draw_pixel_matrix
-from sprites import EXPLOSION, CURTAIN, BLINKING
+from src.functions import offset_sprite, draw_pixel_matrix
+from src.sprites import EXPLOSION, CURTAIN, BLINKING
 
 
 class Animations:
