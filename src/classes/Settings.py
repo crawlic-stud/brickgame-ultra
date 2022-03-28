@@ -14,6 +14,8 @@ class Settings:
         self.showing = False
         self.music = CONFIG['overall']['music']
         self.show_fps = CONFIG['overall']['fps']
+        self.sound_volume = CONFIG['overall']['volume']
+        self.volume_status = '1' * int(10 * self.sound_volume)
 
         self.settings_buttons = (
             Button([*S_L_UP, 48, 48], '+', 48, self.level_up),
@@ -23,6 +25,8 @@ class Settings:
             Button([*S_SW_FPS, 48, 48], 'OFF', 32, self.switch_fps),
             Button([*S_SW_MUSIC, 48, 48], 'OFF', 32, self.switch_music),
             Button([*S_CLOSE, 144, 48], 'ACCEPT', 48, self.close),
+            Button([*S_VOL_UP, 48, 48], '+', 48, self.volume_up),
+            Button([*S_VOL_DOWN, 48, 48], '-', 48, self.volume_down),
         )
 
         self.settings_buttons[4].text = 'ON' if CONFIG['overall']['fps'] else 'OFF'
@@ -36,8 +40,10 @@ class Settings:
 
         draw_text(SCREEN, 'LEVEL', S_LEVEL, 72)
         draw_text(SCREEN, 'SPEED', S_SPEED, 72)
-        draw_text(SCREEN, 'FPS', S_FPS, 60)
-        draw_text(SCREEN, 'MUSIC', S_MUSIC, 60)
+        draw_text(SCREEN, 'FPS', S_FPS, 50)
+        draw_text(SCREEN, 'MUSIC', S_MUSIC, 50)
+        draw_text(SCREEN, 'SOUND', S_VOLUME, 50)
+        draw_text(SCREEN, self.volume_status, S_VOLUME_STATUS, 50)
 
         for button in self.settings_buttons:
             button.draw()
@@ -56,7 +62,7 @@ class Settings:
     def switch_music(self):
         self.music = 0 if self.music else 1
         if self.music:
-            pygame.mixer.music.set_volume(1)
+            pygame.mixer.music.set_volume(CONFIG['overall']['volume'])
         else:
             pygame.mixer.music.set_volume(0)
 
@@ -64,6 +70,7 @@ class Settings:
             self.settings_buttons[5].text = 'OFF'
         else:
             self.settings_buttons[5].text = 'ON'
+        self.save()
 
     def switch_fps(self):
         if self.settings_buttons[4].text == 'ON':
@@ -85,12 +92,29 @@ class Settings:
     def level_down(self):
         self.game.level -= 1 if self.game.level > 1 else 0
 
-    # TODO: save all changes to config.json file
+    def volume_up(self):
+        self.sound_volume += 0.1 if self.sound_volume < 1 else 0
+        self.volume_status = '1' * int(10 * self.sound_volume)
+        set_volume(self.sound_volume)
+
+    def volume_down(self):
+        self.sound_volume -= 0.1 if self.sound_volume > 0.11 else 0
+        self.volume_status = '1' * int(10 * self.sound_volume)
+        set_volume(self.sound_volume)
+
     def save(self):
         CONFIG['overall']['music'] = self.music
         CONFIG['overall']['fps'] = self.show_fps
+        CONFIG['overall']['volume'] = self.sound_volume
         CONFIG['games'][self.game.name]['speed'] = self.game.speed
         CONFIG['games'][self.game.name]['level'] = self.game.level
 
         with open('config.json', 'w') as file:
             json.dump(CONFIG, file, indent=4)
+
+
+def set_volume(volume):
+    for sound in ALL_SOUNDS:
+        sound.set_volume(volume)
+        if CONFIG['overall']['music']:
+            pygame.mixer.music.set_volume(volume)

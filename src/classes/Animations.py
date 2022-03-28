@@ -1,5 +1,5 @@
 from src.functions import offset_sprite, draw_pixel_matrix
-from src.sprites import EXPLOSION, CURTAIN, BLINKING
+from src.sprites import EXPLOSION, CURTAIN, BLINKING, BLINKING_ONCE
 
 
 class Animations:
@@ -13,14 +13,22 @@ class Animations:
 
         self.anim_blinking = len(BLINKING) - 1
         self.blinking_array = []
+        self.anim_blink_once = len(BLINKING_ONCE) - 1
+        self.blink_once_array = []
 
         self.anim_loading = len(CURTAIN) - 1
 
     def blinking(self, pixel_array):
-        """Draws blinking pixel"""
+        """Draws blinking pixels"""
         self.anim_blinking = 0
 
         self.blinking_array = pixel_array
+
+    def blink_once(self, pixel_array):
+        """Draws blinking pixels once"""
+        self.anim_blink_once = 0
+
+        self.blink_once_array = pixel_array
 
     def explosion(self, x, y):
         """Draws explosion at certain pos"""
@@ -44,17 +52,23 @@ class Animations:
 
         if self.anim_blinking < len(BLINKING):
             for pos in self.blinking_array:
-                blinking = offset_sprite(sprite=BLINKING[self.anim_blinking],
-                                         offset_x=pos[0],
-                                         offset_y=pos[1])
-                for pixel in blinking:
-                    draw_pixel_matrix(screen, pixel)
+                blinking = BLINKING[self.anim_blinking]
+                if blinking:
+                    draw_pixel_matrix(screen, pos)
             self.anim_blinking += 1
+        else:
+            self.anim_blinking = 0
+
+        if self.anim_blink_once < len(BLINKING_ONCE):
+            for pos in self.blink_once_array:
+                blinking = BLINKING_ONCE[self.anim_blink_once]
+                if blinking:
+                    draw_pixel_matrix(screen, pos)
+            self.anim_blink_once += 1
 
         self.anim_counter += 1
         if self.anim_counter <= self.frame_len:
 
-            # all animation draws go here
             if self.anim_explosion < len(EXPLOSION):
 
                 explosion = offset_sprite(sprite=EXPLOSION[self.anim_explosion],

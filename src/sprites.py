@@ -86,18 +86,8 @@ CURTAIN = convert_all([
  ['x' * MATRIX_WIDTH] * x for x in range(MATRIX_HEIGHT)
 ][::-1])
 
-BLINKING = convert_all([
- ['x'],
- [' '],
- [' '],
- ['x'],
- [' '],
- ['x'],
- [' '],
- [' '],
- ['x'],
- [' '],
-])
+BLINKING = [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+BLINKING_ONCE = [1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0]
 
 # ------------------- ARKANOID ---------------------
 ENEMIES_SMALL = convert_all([

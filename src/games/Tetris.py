@@ -108,7 +108,7 @@ class Tetris(BaseGame):
                 lower_blocks = [pos for pos in self.placed_bricks if pos[1] > i]
 
                 self.placed_bricks = offset_sprite(upper_blocks, 0, 1) + lower_blocks
-                self.animation.blinking(upper_blocks)
+                self.animation.blink_once(upper_blocks)
 
                 self.score += self.bonus_points
                 self.bonus_points *= 2

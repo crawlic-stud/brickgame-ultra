@@ -1,8 +1,10 @@
+from abc import abstractmethod
+
 import pygame
 
 from src.classes.Animations import Animations
-from src.classes.Settings import CONFIG
-from src.config import MAIN_THEME
+from src.classes.Settings import CONFIG, set_volume
+from src.config import MAIN_THEME, ALL_SOUNDS
 from src.functions import play_music
 
 
@@ -20,9 +22,12 @@ class BaseGame:
         if not CONFIG['overall']['music']:
             pygame.mixer.music.set_volume(0)
 
+        set_volume(CONFIG['overall']['volume'])
+
         self.animation = Animations()
         self.animation.loading()
 
+    @abstractmethod
     def draw_game(self, screen):
         """Method that should be in every game in order to draw all events on screen"""
         pass

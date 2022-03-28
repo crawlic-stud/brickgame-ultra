@@ -34,6 +34,17 @@ ENEMY_DEATH_SOUND.set_volume(0.1)
 GAME_OVER_SOUND.set_volume(0.1)
 BOUNCE_SOUND.set_volume(0.1)
 
+ALL_SOUNDS = [LEVEL_UP_SOUND,
+              PICK_UP_SOUND,
+              HIT_SOUND,
+              BOUNCE_SOUND,
+              GAME_OVER_SOUND,
+              PAUSE_SOUND,
+              MOVEMENT_SOUND,
+              PEW_SOUND_1,
+              PEW_SOUND_2,
+              ENEMY_DEATH_SOUND]
+
 # music
 SECOND_THEME = 'essentials/music/second_theme.wav'
 MAIN_THEME = 'essentials/music/main_song.wav'
@@ -68,18 +79,28 @@ NEXT_BRICK_MATRIX = np.array([[(i, j) for j in range(NEXT_BRICK_POS[1], NEXT_BRI
                               for i in range(NEXT_BRICK_POS[0], NEXT_BRICK_POS[0] + BRICK_MATRIX_WIDTH * MATRIX_CELL, MATRIX_CELL)])
 
 # settings
-S_LEVEL = 10 * SCREEN_CELL, 14 * SCREEN_CELL
-S_SPEED = 10 * SCREEN_CELL, 22 * SCREEN_CELL
-S_FPS = 10 * SCREEN_CELL, 34 * SCREEN_CELL
-S_MUSIC = 10 * SCREEN_CELL, 40 * SCREEN_CELL
+# text
+text_indent = 8
 
-S_L_UP = 30 * SCREEN_CELL, 12 * SCREEN_CELL
-S_L_DOWN = 30 * SCREEN_CELL, 16 * SCREEN_CELL
-S_S_UP = 30 * SCREEN_CELL, 20 * SCREEN_CELL
-S_S_DOWN = 30 * SCREEN_CELL, 24 * SCREEN_CELL
-S_SW_FPS = 30 * SCREEN_CELL, 34 * SCREEN_CELL
-S_SW_MUSIC = 30 * SCREEN_CELL, 40 * SCREEN_CELL
-S_CLOSE = 15 * SCREEN_CELL, 50 * SCREEN_CELL
+S_LEVEL = text_indent * SCREEN_CELL, 9 * SCREEN_CELL
+S_SPEED = text_indent * SCREEN_CELL, 17 * SCREEN_CELL
+S_FPS = text_indent * SCREEN_CELL, 29 * SCREEN_CELL
+S_MUSIC = text_indent * SCREEN_CELL, 35 * SCREEN_CELL
+S_VOLUME = text_indent * SCREEN_CELL, 41 * SCREEN_CELL
+S_VOLUME_STATUS = (text_indent + 15) * SCREEN_CELL, 41 * SCREEN_CELL
+
+# buttons
+button_indent = 30
+
+S_L_UP = button_indent * SCREEN_CELL, 7 * SCREEN_CELL
+S_L_DOWN = button_indent * SCREEN_CELL, 11 * SCREEN_CELL
+S_S_UP = button_indent * SCREEN_CELL, 15 * SCREEN_CELL
+S_S_DOWN = button_indent * SCREEN_CELL, 19 * SCREEN_CELL
+S_SW_FPS = button_indent * SCREEN_CELL, 28 * SCREEN_CELL
+S_SW_MUSIC = button_indent * SCREEN_CELL, 34 * SCREEN_CELL
+S_VOL_UP = button_indent * SCREEN_CELL, 40 * SCREEN_CELL
+S_VOL_DOWN = (text_indent + 11) * SCREEN_CELL, 40 * SCREEN_CELL
+S_CLOSE = button_indent//2 * SCREEN_CELL, 50 * SCREEN_CELL
 
 # colors
 BACKGROUND = (90, 90, 85)
@@ -89,7 +110,7 @@ SHADE_COLOR = (0, 0, 0, 128)
 BACKLIGHT_COLOR = (255, 255, 255, 48)
 
 # snake
-SNAKE_DEFAULT_POS = [10, 5]
+SNAKE_DEFAULT_POS = [10, 15]
 
 # arkanoid
 BRICK_ROWS = MATRIX_HEIGHT - 15

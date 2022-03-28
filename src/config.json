@@ -1,13 +1,14 @@
 {
     "overall": {
-        "music": 0,
-        "fps": 0,
-        "cell": 24
+        "music": 1,
+        "fps": 1,
+        "cell": 24,
+        "volume": 1.0
     },
     "games": {
         "SNAKE": {
             "level": 10,
-            "speed": 4
+            "speed": 5
         },
         "ARKANOID": {
             "level": 1,
