@@ -1,29 +1,29 @@
 {
     "overall": {
-        "music": 1,
-        "fps": 1,
+        "music": 0,
+        "fps": 0,
         "cell": 24,
-        "volume": 1.0
+        "volume": 0.7000000000000001
     },
     "games": {
         "SNAKE": {
-            "level": 10,
+            "level": 5,
             "speed": 5
         },
         "ARKANOID": {
-            "level": 1,
-            "speed": 9
+            "level": 5,
+            "speed": 5
         },
         "SPACE INVADERS": {
-            "level": 6,
-            "speed": 3
+            "level": 5,
+            "speed": 5
         },
         "TRAFFIC RACER": {
-            "level": 10,
-            "speed": 6
+            "level": 5,
+            "speed": 5
         },
         "TUNNEL RACER": {
-            "level": 10,
+            "level": 5,
             "speed": 5
         },
         "TANKS BATTLE": {

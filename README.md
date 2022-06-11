@@ -2,11 +2,7 @@
 (improved interpretation of my childhood's portable console 
 __"BrickGame 9999 in 1"__)
 ***
-Original game looked like this:
-![img.png](readme_media/img.png)
-***
-Some raw preview
-(might be outdated):
+Some raw preview:
 ![](readme_media/snake.gif)
 ![](readme_media/arkanoid.gif)
 ![](readme_media/invaders.gif)
@@ -27,11 +23,11 @@ Games:
 
 Improvement:
 - [x] Add animations and more enjoyable look
-- [ ] Add enjoyable sounds and music
-- [ ] Get sound and music settings work
+- [x] Add enjoyable sounds and music
+- [x] Get sound and music settings work
 - [ ] Make each game more interesting and entertaining
 - [ ] Add more variations to all games
-- [ ] Implement level and speed systems in all games
+- [x] Implement level and speed systems in all games
 - [ ] Implement resolution scaling for each game (might be one of the last things to do)
 ***
 ### Contacts:

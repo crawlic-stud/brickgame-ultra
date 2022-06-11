@@ -15,7 +15,17 @@ class TrafficRacer(BaseGame):
         self.cars_slowness = SLOWNESS_LIST[self.speed]
         self.cars_speed_counter = 0
         self.spawn_timer = 0
-        self.spawn_time = 60 * self.cars_slowness // self.level
+
+        if 0 < self.level < 4:
+            self.traffic_holes = 3
+            self.spawn_time = 60
+        elif 4 < self.level < 7:
+            self.traffic_holes = 2
+            self.spawn_time = 45
+        else:
+            self.traffic_holes = 1
+            self.spawn_time = 30
+
         self.spawn_cars()
 
     def control(self):
@@ -50,7 +60,7 @@ class TrafficRacer(BaseGame):
         self.car = offset_sprite(CAR, offset_x=new_x, offset_y=MATRIX_HEIGHT - 6)
 
     def spawn_cars(self):
-        poses = shuffle_poses()
+        poses = shuffle_poses(holes=random.randint(self.traffic_holes, 5))
         spawn_range = 4, 5
         wave_1 = [offset_sprite(CAR, offset_x=PLAYER_CAR_MOVES[-3:][i], offset_y=-random.randint(*spawn_range))
                   for i, pose in enumerate(poses[-3:]) if pose]

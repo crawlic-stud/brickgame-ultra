@@ -26,7 +26,7 @@ class Console:
         self.game = GAMES_LIST[self.current_index]()
 
         self.settings = Settings(self.game)
-        self.settings_button = Button([*BUTTON_POS, *BUTTON_SIZE], 'SETTINGS', 35, self.settings_switch)
+        self.settings_button = Button([*BUTTON_POS, *BUTTON_SIZE], 'settings', 35, self.settings_switch)
 
     def run(self):
         while self.running:
@@ -73,6 +73,8 @@ class Console:
                 if event.key == pygame.K_ESCAPE:
                     self.game.game_over = True
                     self.change_state(self.pause)
+                if event.key == pygame.K_s:
+                    self.settings_switch()
 
     def pause(self):
         self.game.game_over = True
@@ -107,6 +109,9 @@ class Console:
                         self.current_index = len(GAMES_LIST) - 1
                     self.reset()
                     self.game.game_over = True
+
+                if event.key == pygame.K_s:
+                    self.settings_switch()
 
     def over(self):
         draw_alpha_rect(SCREEN, BACKLIGHT_COLOR, (FRAME[2], FRAME[3]), (FRAME[0], FRAME[1]))

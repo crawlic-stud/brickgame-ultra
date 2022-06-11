@@ -9,7 +9,8 @@ class Arkanoid(BaseGame):
         self.platform_length = 5
         self.platform = [[PLATFORM_DEFAULT_POS + i, MATRIX_HEIGHT - 1] for i in range(self.platform_length)]
 
-        self.slowness = 5
+        self.slowness = [i for i in range(9, 1, -2)][self.speed // 3]
+        print(self.slowness)
         self.ball_pos = BALL_DEFAULT_POS
         self.ball_vel = [-1, -1]
         self.ball_speed = 0

@@ -109,23 +109,13 @@ class Tetris(BaseGame):
 
                 self.placed_bricks = offset_sprite(upper_blocks, 0, 1) + lower_blocks
                 self.animation.blink_once(upper_blocks)
+                LEVEL_UP_SOUND.play()
 
                 self.score += self.bonus_points
                 self.bonus_points *= 2
 
+        MOVEMENT_SOUND.play()
         self.bonus_points = 1000
-
-    def find_projection(self):
-
-        # TODO: MAKE IT WORK
-        max_brick = [max([pos[0] for pos in self.brick.get_sprite()]), max([pos[1] for pos in self.brick.get_sprite()])]
-        placed_under = [pos for pos in self.placed_bricks if pos[0] == max_brick[0]]
-        min_y_placed = sorted(placed_under, key=lambda x: x[1])[0][1] if placed_under else MATRIX_HEIGHT - 1
-        offset_y = min_y_placed - max_brick[1]
-
-        projection = offset_sprite(self.brick.get_sprite(), 0, offset_y)
-
-        self.animation.blinking(projection)
 
     def main(self):
         if self.game_over:

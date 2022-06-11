@@ -1,7 +1,7 @@
 from src.games.__init__ import *
 
 from src.sprites import ENEMIES_SMALL, ENEMIES_BIG, \
-    SHIP_3, \
+    SHIP_3, SHIP_2, SHIP_1, \
     PROJECTILE_1, PROJECTILE_2, PROJECTILE_3
 
 
@@ -9,12 +9,18 @@ class SpaceInvaders(BaseGame):
     def __init__(self):
         super().__init__('SPACE INVADERS')
 
-        self.ship = sprite_to_bottom(SHIP_3)
-        self.ship_slowness = 2
+        if 0 < self.level < 4:
+            self.ship = sprite_to_bottom(SHIP_3)
+        elif 4 < self.level < 7:
+            self.ship = sprite_to_bottom(SHIP_2)
+        else:
+            self.ship = sprite_to_bottom(SHIP_1)
+
+        self.ship_slowness = 11 - self.speed
         self.ship_speed_counter = 0
         self.shoot_delay = 0
 
-        self.enemy_slowness = 30
+        self.enemy_slowness = self.ship_slowness * 10
         self.enemy_speed_counter = 0
         self.enemies = []
 

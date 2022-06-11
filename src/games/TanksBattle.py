@@ -17,13 +17,27 @@ class TanksBattle(BaseGame):
 
         self.shoot_pressed = 0
 
-        self.player_slowness = 10
+        self.player_slowness = 21 - self.speed
         self.player_counter = 0
 
-        self.enemy_slowness = 50
+        self.enemy_slowness = self.player_slowness * 3
         self.enemy_counter = 0
-        self.enemy_projectile_slowness = 5
+        self.enemy_projectile_slowness = 15 - self.speed
         self.enemy_projectile_counter = 0
+        self.spawn_counter = 0
+
+        if 0 < self.level < 4:
+            self.max_enemies = 2
+            self.spawn_delay = 25
+            self.max_spawn_distance = 8
+        elif 4 < self.level < 7:
+            self.max_enemies = 3
+            self.spawn_delay = 20
+            self.max_spawn_distance = 6
+        else:
+            self.max_enemies = 4
+            self.spawn_delay = 15
+            self.max_spawn_distance = 4
 
     def control(self):
         keys = pygame.key.get_pressed()
@@ -76,14 +90,14 @@ class TanksBattle(BaseGame):
         self.enemies.append(Tank((x, y)))
 
     def respawn_enemy(self):
-        if len(self.enemies) >= 3:
+        if len(self.enemies) >= self.max_enemies:
             return
 
         spawn_point = random.choice(SPAWN_POINTS)
         distances = [two_point_distance(spawn_point, (enemy.x, enemy.y)) for enemy in self.enemies] + \
                     [two_point_distance(spawn_point, (self.tank.x, self.tank.y))]
 
-        if min(distances) > 7:
+        if min(distances) > self.max_spawn_distance:
             self.spawn_enemy(*spawn_point)
 
     def move_enemy(self):
@@ -160,11 +174,19 @@ class TanksBattle(BaseGame):
                     self.animation.explosion(self.tank.x, self.tank.y)
                     self.game_over = True
 
+                # player intersects with enemy
+                if intersects(self.tank.get_sprite(), enemy.get_sprite()):
+                    self.tank.sprite = []
+                    self.animation.explosion(self.tank.x, self.tank.y)
+                    self.game_over = True
+
                 # player's projectile intersection with enemies
                 if intersects([self.tank.get_projectile()], enemy.get_sprite()):
                     self.enemies.remove(enemy)
                     self.tank.remove_projectile()
                     self.animation.explosion(enemy.x + 1, enemy.y + 1)
+                    ENEMY_DEATH_SOUND.play()
+                    self.score += 1000
 
     def main(self):
         if self.game_over:
@@ -173,7 +195,12 @@ class TanksBattle(BaseGame):
         self.collision()
         self.move_projectiles()
         self.move_enemy()
-        self.respawn_enemy()
+
+        self.spawn_counter += 1
+
+        if self.spawn_counter > self.spawn_delay:
+            self.respawn_enemy()
+            self.spawn_counter = 0
 
     def draw_game(self, screen):
         self.main()
@@ -240,10 +267,11 @@ class Tank:
         self.projectile = [*self.sprite[4][:-1], *direction]
 
     def shoot(self):
-        """Can not shoot if there's already one projectile on the screen"""
+        # can not shoot if there's already one projectile on the screen
         if self.projectile:
             return
 
+        random.choice([PEW_SOUND_1, PEW_SOUND_2]).play()
         self.create_projectile()
 
     def remove_projectile(self):

@@ -216,8 +216,7 @@ def offset_sprite2(sprite, offset_x, offset_y):
     return sprite
 
 
-def shuffle_poses(length=6):
-    holes = random.randint(3, length-2)
+def shuffle_poses(length=6, holes=4):
     array = [0 for _ in range(holes)] + [1 for _ in range(length - holes)]
     random.shuffle(array)
     return array
